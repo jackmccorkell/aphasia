@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>>Aphasia</title>
     <style>
+<style>
+    .transparent-button {
+        background-color: transparent;
+        border: 1px solid #ccc; /* Optional: Add a border */
+        color: inherit; /* Retains the original text color */
+        cursor: pointer; /* Maintains the pointer for button functionality */
+        padding: 10px; /* Optional: Adjust padding as needed */
+    }
+
+    .transparent-button:hover {
+        opacity: 0.8; /* Optional: Change opacity on hover */
+    }
+
+
         @font-face {
             font-family: 'LEDLIGHT';
             src: url('LEDLIGHT.otf') format('truetype');
@@ -85,7 +99,7 @@
     </style>
 </head>
 <body>
-    <h1 onclick="location.reload()">FRAGMENTS</h1>
+    <h1 onclick="location.reload()">>Aphasia</h1>
     <div id="options"></div>
     <p id="message"></p>
 
@@ -148,6 +162,7 @@
                     }, 2000); // 2-second delay for message
                     setTimeout(() => {
                         createOption('Take the Train', () => handleOption('train'));
+                        createOption('Meet New Friends', () => handleOption('friends'));
                     }, 3000); // 3-second delay before showing 'Take the Train' option
                 } else if (choice === 'dream') {
                     videoSource.src = 'dream.mp4';
@@ -158,6 +173,20 @@
                     videoSource.src = 'train.mp4';
                     setTimeout(() => {
                         message.textContent = "where?";
+                    }, 2000); // 2-second delay for message
+                } else if (choice === 'friends') {
+                    videoSource.src = 'friends.mp4';
+                    setTimeout(() => {
+                        message.textContent = "I think I know you";
+                    }, 2000); // 2-second delay for message
+                    setTimeout(() => {
+                        createOption('Stay', () => handleOption('stay'));
+                        createOption('Go With Them', () => handleOption('gowith'));
+                    }, 3000);
+                } else if (choice === 'gowith') {
+                    videoSource.src = 'gowith.mp4';
+                    setTimeout(() => {
+                        message.textContent = "...";
                     }, 2000); // 2-second delay for message
                 } else {
                     message.textContent = "Option not found.";
